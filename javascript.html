@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tabla Dinamica</title>
+<script type="text/javascript">
+	var tab = document.createElement("table");
+	var tBody = document.createElement("tbody");
+	var tr = document.createElement("tr");
+	var td = document.createElement("td");
+	var btn = document.createElement("input");
+
+	window.onload = function() {
+		tab.setAttribute("align", "center");
+		tab.setAttribute("border", "1");
+		tr.setAttribute("align", "center");
+		btn.setAttribute("type", "button");
+		btn.setAttribute("name", "boton");
+		btn.setAttribute("value", "Crear fila");
+		//btn.setAttribute("onclick", "crearFila()");
+		
+		btn.style.margin = '41px 653px';
+		
+		btn["onclick"] = new Function("crearFila()");
+		
+		for(var i = 1; i <= 5; i++) {
+			td = document.createElement("td");
+			td.innerHTML = "Celda " + i;
+			tr.appendChild(td);
+		}
+		tBody.appendChild(tr);
+		tab.appendChild(tBody);
+		
+		var cont = document.getElementById('contenedor');
+		
+		cont.appendChild(btn);
+		cont.appendChild(tab);
+	}
+
+	function crearFila() {
+		tr =  document.createElement("tr");
+		for(var i = 1; i <= 5; i++) {
+			td = document.createElement("td");
+			td.innerHTML = "Celda " + i;
+			tr.appendChild(td);
+		}
+		tBody.appendChild(tr);
+		tab.appendChild(tBody);
+	}
+</script>
+</head>
+
+<body>
+	<div id="contenedor"></div>
+</body>
+</html>

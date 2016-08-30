@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script>
+	$(document).ready(function(e) {
+		
+        // Añade un nuevo elemento.
+        $('.mas').click(function(e) {
+			e.preventDefault();
+			$('.tabla').append('<tr><td>-</td><td>-</td><td>-</td><td><input type="button" name="menos" class="menos" value="- "></td></tr>');		
+        });
+		
+        // Remueve el elemento seleccionado.
+		$('.tabla').on('click', '.menos', function(e){
+			e.preventDefault();
+			$(this).parents('td').parents('tr').remove();
+		});
+		
+    });
+</script>
+<title>tabla</title>
+</head>
+
+<body>
+    <center>
+        <table width="200" border="1" align="center" class="tabla">
+          <tr>
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>Genero</td>
+            <td>
+                <input type="button" name="mas" class="mas" value="+">
+            </td>
+          </tr>
+        </table>
+    </center>
+</body>
+</html>
